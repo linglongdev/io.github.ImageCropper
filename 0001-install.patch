@@ -1,0 +1,51 @@
+From 7aad35c02c7f0d2978d7ee0bb132643c9cd5c960 Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Mon, 16 Sep 2024 16:23:09 +0800
+Subject: [PATCH] install
+
+---
+ ImageCropper.desktop | 11 +++++++++++
+ ImageCropper.pro     | 10 +++++++++-
+ 2 files changed, 20 insertions(+), 1 deletion(-)
+ create mode 100644 ImageCropper.desktop
+
+diff --git a/ImageCropper.desktop b/ImageCropper.desktop
+new file mode 100644
+index 0000000..c440f4b
+--- /dev/null
++++ b/ImageCropper.desktop
+@@ -0,0 +1,11 @@
++[Desktop Entry]
++Categories=Accessibility;Qt;Utility;
++Exec=ImageCropper
++Name=ImageCropper
++Name[zh_CN]=ImageCropper
++Icon=ImageCropper
++StartupNotify=false
++Terminal=false
++Type=Application
++GenericName=ImageCropper
++Version=1.0
+diff --git a/ImageCropper.pro b/ImageCropper.pro
+index 17bdde3..8e71d34 100644
+--- a/ImageCropper.pro
++++ b/ImageCropper.pro
+@@ -29,5 +29,13 @@ HEADERS += \
+ 
+ # Default rules for deployment.
+ qnx: target.path = /tmp/$${TARGET}/bin
+-else: unix:!android: target.path = /opt/$${TARGET}/bin
++else: unix:!android: #target.path = /opt/$${TARGET}/bin
+ !isEmpty(target.path): INSTALLS += target
++
++target.path = $$PREFIX/bin
++desktop.files = ImageCropper.desktop
++desktop.path = $$PREFIX/share/applications/
++icons.path = $$PREFIX/share/icons/hicolor/apps/
++icons.files = assets/README/ImageCropper.png
++
++INSTALLS += target desktop icons
+\ No newline at end of file
+-- 
+2.43.4
+
